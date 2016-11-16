@@ -1,13 +1,8 @@
+# Reproducible Research: Peer Assessment 1
+Tan Yih Siang  
+17 Nov 2016  
 
 
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
-author: Tan Yih Siang
-date: 17 Nov 2016
----
 
 ## Introduction
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
@@ -58,7 +53,7 @@ stepsByDate <- aggregate(activity$steps ~ activity$date, activity, sum, na.rm = 
 hist(stepsByDate$`activity$steps`, xlab="Total Steps", ylab="Frequency", main="Histogram by Total Steps by Day", breaks=10, xlim=c(0,max(stepsByDate$`activity$steps`)+3000))
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 ```r
 meanSteps <- mean(stepsByDate$`activity$steps`)
@@ -78,7 +73,7 @@ names(stepsByInterval)[2] <- "averageSteps"
 plot(stepsByInterval$interval, stepsByInterval$averageSteps, type="l", xlab="Interval", ylab="Average Steps", main="Average Steps by Interval")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
 maxNumberOfStepsInterval = stepsByInterval[stepsByInterval$averageSteps==max(stepsByInterval$averageSteps),]$interval
@@ -139,4 +134,4 @@ averageStepsbyDayofWeek = aggregate(imputed$steps ~ imputed$interval + imputed$d
 xyplot(averageStepsbyDayofWeek$`imputed$steps` ~ averageStepsbyDayofWeek$`imputed$interval`|averageStepsbyDayofWeek$`imputed$dayofweek`, type = "l", layout = c(1,2), main = "Average Steps by Interval for Weekdays and Weekends", xlab = "Intervals", ylab = "Average Steps")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
